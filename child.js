@@ -3,18 +3,16 @@ function onMessage(event) {
 
     const data = JSON.parse(event.data);
 
-    document.body.scrollTop = data.scrollTop;
+    document.body.scrollTop += data.deltaY;
 }
 
-function onScroll() {
-    if (Date.now() - window.lastMessageTime < 100) {
-        return;
-    }
-
-    const data = JSON.stringify({scrollTop: document.body.scrollTop});
+function onWheel(e) {
+    const data = JSON.stringify({deltaY: e.deltaY});
 
     window.parent.postMessage(data, '*');
+
+    e.preventDefault();
 }
 
-addEventListener('scroll', onScroll);
 addEventListener('message', onMessage);
+addEventListener('wheel', onWheel);
