@@ -1,18 +1,18 @@
-function onMessage(event) {
-    window.lastMessageTime = Date.now();
+// function onMessage(event) {
+//     window.lastMessageTime = Date.now();
 
-    const data = JSON.parse(event.data);
+//     const data = JSON.parse(event.data);
 
-    document.body.scrollTop += data.deltaY;
-}
+//     document.body.scrollTop += data.deltaY;
+// }
 
-function onWheel(e) {
-    const data = JSON.stringify({deltaY: e.deltaY});
+// function onWheel(e) {
+//     const data = JSON.stringify({deltaY: e.deltaY});
 
-    window.parent.postMessage(data, '*');
+//     window.parent.postMessage(data, '*');
 
-    e.preventDefault();
-}
+//     e.preventDefault();
+// }
 
-addEventListener('message', onMessage);
-addEventListener('wheel', onWheel);
+// addEventListener('message', onMessage);
+// addEventListener('wheel', onWheel);
