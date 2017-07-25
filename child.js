@@ -1,9 +1,13 @@
 // function onMessage(event) {
-//     window.lastMessageTime = Date.now();
-
 //     const data = JSON.parse(event.data);
 
-//     document.body.scrollTop += data.deltaY;
+//     if (data.supportSyncScroll) {
+//         window.supportSyncScroll = true;
+//     }
+
+//     if (data.deltaY) {
+//         document.body.scrollTop += data.deltaY;
+//     }
 // }
 
 // function onWheel(e) {
@@ -11,7 +15,9 @@
 
 //     window.parent.postMessage(data, '*');
 
-//     e.preventDefault();
+//     if (window.supportSyncScroll) {
+//         e.preventDefault();
+//     }
 // }
 
 // addEventListener('message', onMessage);
