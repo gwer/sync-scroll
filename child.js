@@ -11,11 +11,17 @@
 // }
 
 // function onWheel(e) {
-//     const data = JSON.stringify({deltaY: e.deltaY});
+//     const lineMultiplier = 24;
+//     const deltaY = e.deltaMode === 1 ? e.deltaY * lineMultiplier : e.deltaY;
+//     const data = JSON.stringify({ deltaY });
+
+//     const isScrolledToEnd = false
+//         || e.deltaY < 0 && document.body.scrollTop <= 0
+//         || e.deltaY > 0 && document.body.scrollHeight - document.body.clientHeight <= document.body.scrollTop;
 
 //     window.parent.postMessage(data, '*');
 
-//     if (window.supportSyncScroll) {
+//     if (window.supportSyncScroll && !isScrolledToEnd) {
 //         e.preventDefault();
 //     }
 // }
